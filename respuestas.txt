@@ -1,0 +1,23 @@
+💬 Preguntas de para después de la implementación 
+1.  ¿En qué momento te diste cuenta que el servicio principal no necesitaba saber cómo estaba implementado cada transporte? 
+- En un primer momento lo encaré con la idea de que el cómo se haga un transporte no es de la incumbencia del servicio principal, la lógica de qué vehícula transporta y cómo lo obtengo la pude abstraer con un Factory Method (con ayuda del libro 
+  de "Sumérgete en los patrones de diseño para recordar algún concepto"), pero con esta estrategia aprovechando el polimorfismo en el código cliente no hay mucha lógica más que pedirle al usuario los inputs y activar el viaje.
+
+2.  ¿Qué cambios podrías hacer en un transporte sin afectar al resto del sistema? 
+- Podría cambiar preferencias de ruta, atributos y el código cliente no vería cambios.
+
+3.  ¿Qué partes cambiarías si mañana agregáramos una nueva forma de ingreso, como un bot de WhatsApp? 
+- La interfaz del usuario cambiaría, los métodos seguirían con su mismo contrato para los inputs haciendolo reutilizable en otras plataformas.
+
+4.  ¿Qué beneficios te trajo definir primero un contrato en lugar de programar directamente? 
+- Posibilidad de escalarlo, agregar vehiculos, remover en un futuro sin mucho código de por medio. Aprovechando el polimorfismo no importa qué vehiclo haga el transporte para el cliente, obtiene el resultado del transporte hecho
+- Código cliente más claro
+
+5.  ¿Qué dificultades encontraste para separar la lógica de transporte de la forma de interactuar con el usuario? 
+- En un principio tuve que pensar cómo encarar el problema de una manera más ordenada, debatí si usar un strategy para la creación del Transporte pero después me dí cuenta que la descripción del problema al compartir la misma interfaz entre 
+  vehículos es una buena oportunidad para un Factory Method devolviendo transportes que puedan transportar respetando un mismo contrato. 
+- La abstracción de que el código no invoque un vehículo sino algo que devuelva el vehículo y trabajar con el método confiando en que cumpla su tarea, no implementandola directo en el código cliente.
+- Problema con importación circular, estoy al tanto que hay una falla en la importación circular en el archivo Creador.py, por lo que ví con este diseño en Java no pasaría pero en python una solución alternativa es con las importaciones 
+  dentro del método dinámicas, no me parece lo más prolijo y puede mejorarse.
+ 
+
