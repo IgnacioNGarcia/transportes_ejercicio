@@ -1,0 +1,9 @@
+-  ¿Qué parte fue más fácil de testear? ¿Y cuál más difícil? 
+    Lo más sencillo de testear fue la creación del vehículo exitosa, independiente del input. Lo más dificil el resultado fallido, tuve que revisar la sintaxis del with self.assertRaises
+     al ir antes de la ejecución de los métodos que tirarían la excepcion
+-  ¿Qué te facilitó el hecho de haber separado antes la lógica de las interfaces? 
+    Tuve que refactorizar un poco el código para crear una interfaz de sistema de transporte para considerar distintos estimulos al sistema y que no solo funcionen las clases por consola,
+    haber separado previamente los transportes con un factory me ayudó a que la refactorización no implique tocar nada de esa parte. La implementación de una interfaz de Sistema de transporte
+    hizo que luego para la ejecución por script o consola solo haya un cambio mínimo en la clase invocada, el resto del código una 🧈
+-  ¿Qué hubieras hecho distinto si hubieras tenido que testear desde el inicio? 
+    Creo que la lógica core de negocio estaba bien implementada desde un principio usando patrones de diseño. Bastante desacoplada esa parte. 
